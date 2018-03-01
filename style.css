@@ -1,0 +1,24 @@
+form {
+    width: 400px;
+    display: inline-block;
+    vertical-align: top;
+}
+#card_area {
+    width: 400px;
+    display: inline-block;
+    vertical-align: top;
+}
+.card {
+    min-height: 200px;
+    border: solid black;
+    margin: 10px;
+    padding: 10px;
+}
+h1 {
+    text-align: center;
+}
+textarea {
+    display: block;
+    width: 400px;
+    height: 100px;
+}

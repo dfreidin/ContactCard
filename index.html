@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Contact Cards</title>
+        <link rel="stylesheet" href="style.css">
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+        <script>
+            var card_count = 0;
+            $(document).ready(function(){
+                $("form").submit(function(){
+                    var text1 = "<h1>" + $("#fn").val() + " " + $("#ln").val() + "</h1><p>Click for description!";
+                    var text2 = "<p>" + $("#desc").val() + "</p>";
+                    var card_html = '<div class="card" alt_text="' + text2 + '">' + text1 + '</div>';
+                    $("#card_area").append(card_html);
+                    return false;
+                });
+                $(document).on("click", ".card", function(){
+                    old_text = $(this).html();
+                    new_text = $(this).attr("alt_text");
+                    $(this).html(new_text);
+                    $(this).attr("alt_text", old_text);
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <form>
+            <p>First Name: <input type="text" id="fn" name="first_name" value="First Name"></p>
+            <p>Last Name: <input type="text" id="ln" name="last_name" value="Last Name"></p>
+            <p>Description:</p>
+            <textarea id="desc" name="description">Enter description...</textarea>
+            <input type="submit" id="submit" value="Add User">
+        </form>
+        <div id="card_area"></div>
+    </body>
+</html>
